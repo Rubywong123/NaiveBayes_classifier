@@ -1,4 +1,4 @@
-from utils import load_data, unique
+from utils import load_data, unique, MSE
 from cleandata import total_cleaning
 from model import NB
 from config import get_opt
@@ -42,3 +42,6 @@ if __name__ == '__main__':
     # Test the best performing model on the test set
     res = model.predict(test_texts)
     model.eval(res, test_labels)
+
+    #MSE
+    print(MSE(res, test_labels))
