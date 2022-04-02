@@ -42,5 +42,3 @@ def total_cleaning(texts):
 if __name__ == '__main__':
     stop_list = stopwords.words('english')
     print(stop_list)
-
-

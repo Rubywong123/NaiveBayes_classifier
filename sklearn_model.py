@@ -1,5 +1,6 @@
 from sklearn.naive_bayes import MultinomialNB
-from utils import load_data, unique, macro_F1, MSE
+from utils import load_data, unique, calculate_avg_length, split_words_by_label,\
+get_vocab_size, prob_Laplace_smoothing, accuracy, macro_F1
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.pipeline import make_pipeline
 from sklearn.metrics import accuracy_score, f1_score
@@ -29,8 +30,8 @@ if __name__ == '__main__':
     #print("Avg. length:", calculate_avg_length(train_texts + valid_texts + test_texts))
 
     print("Executing data cleaning!")
-    test_texts = total_cleaning(test_texts)
-    train_texts = total_cleaning(train_texts)
+    #test_texts = total_cleaning(test_texts)
+    #train_texts = total_cleaning(train_texts)
     
 
     # feature crafting using sklearn.feature_extraction
@@ -83,9 +84,6 @@ if __name__ == '__main__':
     up = TP.sum()
     down = (TP.sum() + FP.sum() + TN.sum() + FN.sum()) / 5
     print(up / down)
-
-    print(MSE(res, test_labels))
-
         
 
 

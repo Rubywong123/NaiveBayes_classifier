@@ -68,6 +68,7 @@ class NB:
         print('start predicting...')
         total_num = len(texts)
         res = np.zeros(total_num, dtype=int)
+        print('label_portion: ', self.label_portion)
         
         #batched process, otherwise the need for memory can't be satisfied.;
         batch_size = 5
@@ -85,10 +86,11 @@ class NB:
             midres = np.log(prob_matrix) * feature_matrix
             unseen = np.expand_dims(self.unseen, axis = 1)
             unseen_word_num = np.expand_dims(unseen_word_num, axis = 0)
-            midres = np.sum(midres, axis = 2) + np.log(unseen ** unseen_word_num)
+            midres = np.sum(midres, axis = 2) + np.log(unseen) * unseen_word_num
 
             # strongly worsen the performance of sst-5
             label_portion = np.expand_dims(self.label_portion, axis = 1)
+            
             midres += np.log(label_portion)
 
             if batch_size*(i+1) > total_num:

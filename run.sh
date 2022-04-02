@@ -1,6 +1,6 @@
 if [ -z $1 ]
 then
-    python3 main.py
+    python main.py
 else
-    python3 main.py --dataset $1
+    python main.py --dataset $1
 fi

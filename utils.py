@@ -1,6 +1,5 @@
 from cgitb import text
 import csv
-import numpy as np
 
 
 # texts, labels: list of raw sentences, list of labels.
@@ -133,8 +132,9 @@ def eval(word_to_prob, label_set, valid_texts, valid_labels, vocab_size, label_p
     return Macro_f1
 
 
+def MSE(res, gold):
+    n = len(res)
+    return ((res-gold) ** 2).sum() / n
 
-def MSE(res, result):
-    return ((res-result) ** 2).sum()
 
 
