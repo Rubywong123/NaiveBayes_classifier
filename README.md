@@ -6,17 +6,27 @@
 
 * The structure of working directory should be:
 
-|\-main.py
-|\-model.py
-|\-config.py
-|\-cleandata.py
-|\-utils.py
-|\-run.sh
-|\-data
-\-\-\-\-sst_train.csv
-\-\-\-\-sst_test.csv
-\-\-\-\-yelp_train.csv
-\-\-\-\-yelp_test.csv
+\-main.py
+
+\-model.py
+
+\-config.py
+
+\-cleandata.py
+
+\-utils.py
+
+\-run.sh
+
+\-data
+
+|\-\-\-\-sst_train.csv
+
+|\-\-\-\-sst_test.csv
+
+|\-\-\-\-yelp_train.csv
+
+|\-\-\-\-yelp_test.csv
 
 `main.py` contains the main routine of the procedure, which includes loading data, pre-processing data, training model and evaluation.
 
